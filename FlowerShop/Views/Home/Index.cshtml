@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+
+<div class="title"><span class="title_icon"><img src="@Url.Content("~/Content/User/")images/bullet1.gif" alt="" /></span>Featured products</div>
+
+@foreach (var product in ViewBag.FeaturedProducts)
+{
+    <div class="feat_prod_box">
+        <div class="prod_img"><a href="@Url.Action("Details","Product",new { id= @product.Id })"><img src="@Url.Content("~/Content/User/")images/@product.photo" alt="" border="0" /></a></div>
+        <div class="prod_det_box">
+            <div class="box_top"></div>
+            <div class="box_center">
+                <div class="prod_title">@product.name</div>
+                <p class="details">@product.description</p>
+                <a href="@Url.Action("Details","Product",new { id= @product.Id })" class="more">- more details -</a>
+                <div class="clear"></div>
+            </div>
+            <div class="box_bottom"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+}
+
+
+<div class="title"><span class="title_icon"><img src="@Url.Content("~/Content/User/")images/bullet2.gif" alt="" /></span>New products</div>
+<div class="new_products">
+    @foreach (var product in ViewBag.LatestProducts)
+    {
+        <div class="new_prod_box">
+            <a href="@Url.Action("Details","Product",new { id= @product.Id })">@product.name</a>
+            <div class="new_prod_bg">
+                <a href="@Url.Action("Details","Product",new { id= @product.Id })"><img src="@Url.Content("~/Content/User/")images/@product.photo" alt="" class="thumb" border="0" /></a>
+            </div>
+        </div>
+    }
+</div>
+<div class="clear"></div>
+

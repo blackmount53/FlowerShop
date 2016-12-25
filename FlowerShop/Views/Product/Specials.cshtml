@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Specials";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+
+<div class="title"><span class="title_icon"><img src="@Url.Content("~/Content/User/")images/bullet1.gif" alt="" /></span>Special gifts</div>
+
+@foreach (var product in ViewBag.products)
+{
+    <div class="feat_prod_box">
+        <div class="prod_img"><a href="@Url.Action("Details","Product",new { id= product.Id })"><img src="@Url.Content("~/Content/User/")images/@product.photo" alt="" border="0" /></a></div>
+        <div class="prod_det_box">
+            <span class="special_icon"><img src="@Url.Content("~/Content/User/")images/special_icon.gif" alt="" /></span>
+            <div class="box_top"></div>
+            <div class="box_center">
+                <div class="prod_title">@product.name</div>
+                <p class="details">@product.description</p>
+                <a href="@Url.Action("Details","Product",new { id= product.Id })" class="more">- more details -</a>
+                <div class="clear"></div>
+            </div>
+            <div class="box_bottom"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+}
+
+
+
+<div class="clear"></div>

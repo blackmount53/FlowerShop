@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Latest";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+
+<div class="crumb_nav"> <a href="@Url.Action("Index","Home")">home</a></div>
+<div class="title"><span class="title_icon"><img src="@Url.Content("/Content/User/")images/bullet1.gif" alt="" /></span>Category products</div>
+<div class="new_products">
+
+    @foreach (var product in ViewBag.products)
+    {
+        <div class="new_prod_box">
+            <a href="@Url.Action("Details","Product",new { id= @product.Id })">@product.name</a>
+            <div class="new_prod_bg">
+                <a href="@Url.Action("Details","Product",new { id= @product.Id })"><img src="@Url.Content("~/Content/User/")images/@product.photo" alt="" class="thumb" border="0" /></a>
+            </div>
+        </div>
+
+    }
+
+</div>
+<div class="clear"></div>
+

@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+@model FlowerShop.Models.Account
+
+
+<div class="title"><span class="title_icon"><img src="/Content/User/images/bullet1.gif" alt="" /></span>Register</div>
+<div class="feat_prod_box_details">
+    <p class="details"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. </p>
+    <div class="contact_form">
+        <div class="form_subtitle">create new account</div>
+
+        @using (Html.BeginForm("Register","Account",FormMethod.Post)) { 
+            <div class="form_row">
+                <label class="contact"><strong>Username:</strong></label>
+                @Html.TextBoxFor(model=>model.username, new { @class= "contact_input" } )
+                
+            </div>
+            <div class="form_row">
+                <label class="contact"><strong>Password:</strong></label>
+                @Html.PasswordFor(model => model.password, new { @class = "contact_input" })                
+            </div>
+            <div class="form_row">
+                <label class="contact"><strong>Full Name:</strong></label>
+                @Html.TextBoxFor(model => model.fullName, new { @class = "contact_input" })                
+            </div>
+            <div class="form_row">
+                <label class="contact"><strong>Email:</strong></label>
+                @Html.TextBoxFor(model => model.email, new { @class = "contact_input" })
+            </div>
+
+            <div class="form_row">
+                <label class="contact"><strong>Website:</strong></label>
+                @Html.TextBoxFor(model => model.website, new { @class = "contact_input" })
+            </div>
+            <div class="form_row">
+                <input type="submit" class="register" value="register" />
+            </div>
+        }
+    </div>
+</div>
+<div class="clear"></div>
+
